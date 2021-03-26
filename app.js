@@ -13,7 +13,8 @@ const flash = require("connect-flash");
 const mongoose = require("mongoose");
 //https://mongoosejs.com/docs/connections.html#connections
 // mongoose.connect("mongodb://localhost:27017/db_bwamern", {
-mongoose.connect("mongodb://127.0.0.1:27017/db_staycation", {
+// mongoose.connect("mongodb://127.0.0.1:27017/db_staycation", {
+mongoose.connect("mongodb+srv://codeathome:bwamern@cluster0.bu99g.mongodb.net/db_staycation?retryWrites=true&w=majority", {
   useNewUrlParser: true,
   useUnifiedTopology: true,
   useCreateIndex: true,
