@@ -3,6 +3,8 @@ var express = require("express");
 var path = require("path");
 var cookieParser = require("cookie-parser");
 var logger = require("morgan");
+//cors untuk perizinan
+var cors = require("cors");
 // method overide //ketika kita ingin menggunakan method put, kita harus install satulagi method override
 const methodOverride = require("method-override");
 // https://www.npmjs.com/package/express-session
@@ -29,6 +31,7 @@ const adminRouter = require("./routes/admin");
 const apiRouter = require("./routes/api");
 
 var app = express();
+app.use(cors()); // Use this after the variable declaration
 
 // view engine setup
 app.set("views", path.join(__dirname, "views"));
