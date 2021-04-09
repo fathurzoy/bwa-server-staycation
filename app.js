@@ -3,7 +3,7 @@ var express = require("express");
 var path = require("path");
 var cookieParser = require("cookie-parser");
 var logger = require("morgan");
-//cors untuk perizinan
+//cors untuk perizinan oke network
 var cors = require("cors");
 // method overide //ketika kita ingin menggunakan method put, kita harus install satulagi method override
 const methodOverride = require("method-override");
