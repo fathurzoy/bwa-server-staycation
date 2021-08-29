@@ -16,12 +16,16 @@ const mongoose = require("mongoose");
 //https://mongoosejs.com/docs/connections.html#connections
 // mongoose.connect("mongodb://localhost:27017/db_bwamern", {
 // mongoose.connect("mongodb://127.0.0.1:27017/db_staycation", {
-mongoose.connect("mongodb+srv://codeathome:bwamern@cluster0.bu99g.mongodb.net/db_staycation?retryWrites=true&w=majority", {
-  useNewUrlParser: true,
-  useUnifiedTopology: true,
-  useCreateIndex: true,
-  useFindAndModify: false,
-});
+mongoose.connect(
+  // "mongodb+srv://codeathome:bwamern@cluster0-40j6e.mongodb.net/db_staycation?retryWrites=true&w=majority",
+  "mongodb+srv://fathur123:fathur123@cluster0.hhvx1.mongodb.net/myFirstDatabase?retryWrites=true&w=majority",
+  {
+    useNewUrlParser: true,
+    useUnifiedTopology: true,
+    useCreateIndex: true,
+    useFindAndModify: false,
+  }
+);
 
 var indexRouter = require("./routes/index");
 var usersRouter = require("./routes/users");
@@ -54,7 +58,10 @@ app.use(express.json());
 app.use(express.urlencoded({ extended: false }));
 app.use(cookieParser());
 app.use(express.static(path.join(__dirname, "public")));
-app.use("/sb-admin-2", express.static(path.join(__dirname, "node_modules/startbootstrap-sb-admin-2"))); //mengambil bootstrap module sb admin
+app.use(
+  "/sb-admin-2",
+  express.static(path.join(__dirname, "node_modules/startbootstrap-sb-admin-2"))
+); //mengambil bootstrap module sb admin
 
 app.use("/", indexRouter);
 app.use("/users", usersRouter);

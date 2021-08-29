@@ -4,7 +4,8 @@ var mongoose = require("mongoose");
 // Connect to MongoDB via Mongoose
 seeder.connect(
   // "mongodb://127.0.0.1:27017/db_staycation",
-  "mongodb+srv://codeathome:bwamern@cluster0.bu99g.mongodb.net/db_staycation?retryWrites=true&w=majority",
+  // "mongodb+srv://codeathome:bwamern@cluster0.bu99g.mongodb.net/db_staycation?retryWrites=true&w=majority",
+  "mongodb+srv://fathur123:fathur123@cluster0.hhvx1.mongodb.net/myFirstDatabase?retryWrites=true&w=majority",
   {
     useNewUrlParser: true,
     useCreateIndex: true,
@@ -13,15 +14,39 @@ seeder.connect(
   },
   function () {
     // Load Mongoose models
-    seeder.loadModels(["./models/Category", "./models/Bank", "./models/Item", "./models/Feature", "./models/Activity", "./models/Member", "./models/Image", "./models/Member", "./models/Booking", "./models/Users"]);
+    seeder.loadModels([
+      "./models/Category",
+      "./models/Bank",
+      "./models/Item",
+      "./models/Feature",
+      "./models/Activity",
+      "./models/Member",
+      "./models/Image",
+      "./models/Member",
+      "./models/Booking",
+      "./models/Users",
+    ]);
 
     // Clear specified collections
-    seeder.clearModels(["Category", "Bank", "Item", "Member", "Item", "Feature", "Image", "Booking", "Users"], function () {
-      // Callback to populate DB once collections have been cleared
-      seeder.populateModels(data, function () {
-        seeder.disconnect();
-      });
-    });
+    seeder.clearModels(
+      [
+        "Category",
+        "Bank",
+        "Item",
+        "Member",
+        "Item",
+        "Feature",
+        "Image",
+        "Booking",
+        "Users",
+      ],
+      function () {
+        // Callback to populate DB once collections have been cleared
+        seeder.populateModels(data, function () {
+          seeder.disconnect();
+        });
+      }
+    );
   }
 );
 
